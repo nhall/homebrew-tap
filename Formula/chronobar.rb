@@ -1,7 +1,7 @@
 # Source of truth for the formula in the nhall/homebrew-tap repo (Formula/chronobar.rb).
 # On each release: tag vX.Y.Z, update `tag` and `revision` here, and copy this file to the tap.
-# The source is cloned with git rather than downloaded as a tarball, so it installs while the
-# repository is private: git authenticates with the installer's own GitHub credentials.
+# The source is cloned with git at the release tag rather than downloaded as a tarball; see
+# docs/adr/0008-public-tap-keeps-cloning-at-the-release-tag.md.
 class Chronobar < Formula
   desc "Menu bar time tracker with labelled timers that agents can drive"
   homepage "https://github.com/nhall/chronobar"
