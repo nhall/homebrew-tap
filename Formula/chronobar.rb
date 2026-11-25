@@ -6,16 +6,16 @@ class Chronobar < Formula
   desc "Menu bar time tracker with labelled timers that agents can drive"
   homepage "https://github.com/nhall/chronobar"
   url "https://github.com/nhall/chronobar.git",
-      tag:      "v2.2.0",
-      revision: "168cc1aa1f3c6d6df597e237dec605ef87ed6e04"
+      tag:      "v2.2.1",
+      revision: "720b5ae3a6ba31285803a37c05d0b42c0ecf9ee2"
   license "MIT"
   head "https://github.com/nhall/chronobar.git", branch: "main"
 
   # Builds with the Swift toolchain from the Command Line Tools; Xcode is not required.
-  # Needs Swift 6.0 or later (Package.swift's tools version, and the MCP SDK's floor):
-  # Command Line Tools 16 or later. SwiftPM stops with "requires a minimum Swift tools version"
-  # on an older toolchain.
-  depends_on macos: :sonoma
+  # Needs Swift 6.1 or later (the MCP SDK's code): Command Line Tools 16.3 or later, which need
+  # macOS 15.2. An older toolchain stops with a compile error in the SDK. Homebrew can only require
+  # Sequoia, not 15.2; the install docs say 15.2.
+  depends_on macos: :sequoia
 
   def install
     # SwiftPM's own sandbox can't nest inside Homebrew's, and it fetches the packages pinned by
